@@ -1,0 +1,251 @@
+---
+// src/components/Experience.astro
+const experiences = [
+ {
+   company: "Visa Inc.",
+   role: "Software Engineer Intern",
+   period: "Oct 2024 - Nov 2024",
+   tech: ["Python", "LangChain", "LangGraph", "Agile"],
+   bullets: [
+     "Built intelligent Release Management correlation system handling 1000s of JIRA tickets",
+     "Designed multi-agent architecture with specialized LLM agents for incident processing"
+   ]
+ },
+ {
+   company: "Duke Quantitative Finance",
+   role: "Trading Competitor",
+   period: "Sept 2023 - Present",
+   tech: ["Python", "Finance", "Algorithms"],
+   bullets: [
+     "Point72 Investment Analysis Academy - options, valuation, market making",
+     "Developed Python trading algorithms, managed $1M simulated portfolio in Duke FINTECH"
+   ]
+ },
+ {
+   company: "Duke University",
+   role: "Undergraduate Research Assistant",
+   period: "Oct 2024",
+   tech: ["Python", "twscrape", "Pandas", "Snowflake"],
+   bullets: [
+     "Built automated Twitter scraping framework collecting 1000+ election policy tweets",
+     "Implemented rate-limiting, proxy rotation, and Snowflake data pipelines"
+   ]
+ },
+ {
+   company: "Interos.ai",
+   role: "Data Science R&D Intern",
+   period: "Jun 2024 - Jul 2024",
+   tech: ["Python", "MongoDB", "OCR", "LLM"],
+   bullets: [
+     "Developed OCR data extraction pipelines, reduced preprocessing time by 32%",
+     "Trained lightweight LLM for region-specific supply chain risk summaries"
+   ]
+ },
+ {
+   company: "AYR.ai",
+   role: "Software Engineer Intern",
+   period: "Sep 2022 - Aug 2023",
+   tech: ["Python", "React.js", "Selenium", "OCR"],
+   bullets: [
+     "Improved handwriting classification by 28% with Transformer-based OCR",
+     "Reduced data retrieval time by 64% with automated Selenium scraper"
+   ]
+ },
+ {
+   company: "NJ Institute of Technology",
+   role: "Algorithmic Research Intern",
+   period: "Jul 2021 - Sep 2021",
+   tech: ["C++", "Algorithms"],
+   bullets: [
+     "Designed parallel-capable C++ algorithm for graph processing",
+     "Optimized complexity through innovative data structures"
+   ]
+ }
+];
+---
+
+<section id="experience" class="experience-section">
+ <div class="section-header">
+   <h2 class="section-title">
+     <span class="title-prefix">&gt;</span> 02 // WORK_EXPERIENCE
+   </h2>
+   <div class="title-line"></div>
+ </div>
+
+ <div class="timeline">
+   {experiences.map((exp, index) => (
+     <div class="timeline-item">
+       <div class="timeline-marker"></div>
+       <div class="experience-card">
+         <div class="exp-header">
+           <div>
+             <h3 class="company">{exp.company}</h3>
+             <p class="role">{exp.role}</p>
+           </div>
+           <span class="period">{exp.period}</span>
+         </div>
+         
+         <div class="tech-stack">
+           {exp.tech.map(tech => (
+             <span class="tech-tag">{tech}</span>
+           ))}
+         </div>
+         
+         <ul class="bullets">
+           {exp.bullets.map(bullet => (
+             <li>{bullet}</li>
+           ))}
+         </ul>
+       </div>
+     </div>
+   ))}
+ </div>
+</section>
+
+<style>
+ .experience-section {
+   padding: 4rem 0;
+   position: relative;
+   z-index: 10;
+ }
+
+ .section-header {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 3rem;
+ }
+
+ .section-title {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 2rem;
+   font-weight: 700;
+   color: #e0e0e0;
+   margin: 0;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+ }
+
+ .title-prefix {
+   color: var(--cyber-green);
+   opacity: 0.5;
+ }
+
+ .title-line {
+   flex: 1;
+   height: 1px;
+   background: #333;
+ }
+
+ .timeline {
+   position: relative;
+   padding-left: 2rem;
+ }
+
+ .timeline::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   width: 1px;
+   background: #333;
+ }
+
+ .timeline-item {
+   position: relative;
+   margin-bottom: 2rem;
+ }
+
+ .timeline-marker {
+   position: absolute;
+   left: -2rem;
+   top: 0.5rem;
+   width: 9px;
+   height: 9px;
+   background: var(--cyber-green);
+   border-radius: 50%;
+ }
+
+ .experience-card {
+   background: #111;
+   border: 1px solid #222;
+   padding: 1.5rem;
+   margin-left: 1rem;
+ }
+
+ .exp-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin-bottom: 1rem;
+ }
+
+ .company {
+   font-size: 1.25rem;
+   font-weight: 700;
+   color: #e0e0e0;
+   margin: 0 0 0.25rem 0;
+ }
+
+ .role {
+   color: var(--cyber-green);
+   margin: 0;
+   font-size: 0.875rem;
+ }
+
+ .period {
+   color: #666;
+   font-size: 0.75rem;
+   letter-spacing: 0.05em;
+ }
+
+ .tech-stack {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+   margin-bottom: 1rem;
+ }
+
+ .tech-tag {
+   font-size: 0.75rem;
+   color: #666;
+   padding: 0.25rem 0.5rem;
+   background: #1a1a1a;
+   border: 1px solid #333;
+ }
+
+ .bullets {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .bullets li {
+   color: #999;
+   font-size: 0.875rem;
+   line-height: 1.6;
+   margin-bottom: 0.5rem;
+   padding-left: 1rem;
+   position: relative;
+ }
+
+ .bullets li::before {
+   content: '▸';
+   position: absolute;
+   left: 0;
+   color: var(--cyber-blue);
+ }
+
+ @media (max-width: 768px) {
+   .timeline {
+     padding-left: 1rem;
+   }
+   
+   .exp-header {
+     flex-direction: column;
+     gap: 0.5rem;
+   }
+ }
+</style>

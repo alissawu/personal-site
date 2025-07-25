@@ -2,7 +2,7 @@
 // src/components/Hero.astro
 ---
 
-<section class="hero">
+<section id="home" class="hero">
     <div class="hero-content">
       <div class="glitch-wrapper">
         <h1 class="hero-title" data-value="ALISSA_WU">
@@ -40,7 +40,7 @@
           <span class="btn-text">VIEW_PROJECTS</span>
           <span class="btn-glitch">VIEW_PROJECTS</span>
         </button>
-        <button class="cyber-btn secondary">
+        <button class="cyber-btn secondary" onclick="document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })">
           <span class="btn-text">WORK_EXPERIENCE</span>
           <span class="btn-glitch">WORK_EXPERIENCE</span>
         </button>
@@ -68,7 +68,7 @@
     </div>
     <script>
       // All possible chara to show during scramble effect
-      const letters="ACDEFIJKMNOPQRSTUVWXYZ0123456789_[]()*#-~<>/:"
+      const letters="ACDEIJKNOPQRSTUVWXYZ0123456789_[]()*#-~<>/:="
       // Wait for page to load
       window.addEventListener('load', () => {
         // Find element, tell ts it's an HTMLElement
@@ -155,7 +155,7 @@
     
     .cyber-subtitle {
       font-size: 1.5rem;
-      color: var(--cyber-green);
+      color: var(--cyber-blue);
       margin-top: 1rem;
     }
     
