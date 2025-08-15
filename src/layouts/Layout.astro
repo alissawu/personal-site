@@ -28,6 +28,12 @@ const { title } = Astro.props;
     <button id="back-to-top" class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
       ↑
     </button>
+    
+    <button id="floating-chat" class="floating-chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </svg>
+    </button>
 
     <style is:global>
       * {
@@ -128,17 +134,64 @@ const { title } = Astro.props;
         background: var(--cyber-green);
         color: #111;
       }
+      
+      .floating-chat {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: #111;
+        border: 1px solid var(--cyber-green);
+        color: var(--cyber-green);
+        font-size: 1.5rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 100;
+        transform: translateY(-70px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+      
+      .floating-chat.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .floating-chat:hover {
+        background: var(--cyber-green);
+        color: #111;
+        transform: translateY(-70px) scale(1.1);
+      }
+      
+      .floating-chat svg {
+        width: 24px;
+        height: 24px;
+      }
     </style>
 
     <script>
       window.addEventListener('scroll', () => {
         const backToTop = document.getElementById('back-to-top');
+        const floatingChat = document.getElementById('floating-chat');
         // Changed to viewport-based
         if (window.scrollY > window.innerHeight * 0.5) {
           backToTop?.classList.add('visible');
+          floatingChat?.classList.add('visible');
         } else {
           backToTop?.classList.remove('visible');
+          floatingChat?.classList.remove('visible');
         }
+      });
+      
+      // Handle floating chat button click
+      document.getElementById('floating-chat')?.addEventListener('click', () => {
+        const event = new CustomEvent('open-chat');
+        window.dispatchEvent(event);
       });
     </script>
   </body>

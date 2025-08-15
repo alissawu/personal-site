@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import MatrixRain from '../components/MatrixRain.astro';
 import Projects from '../components/Projects.astro';
 import Experience from '../components/Experience.astro';
+import ChatPanel from '../components/ChatPanel.astro';
 ---
 
 <Layout title="ALISSA WU // SOFTWARE_ENGINEER">
@@ -14,6 +15,7 @@ import Experience from '../components/Experience.astro';
 	  <Projects /> 
 	  <Experience />
 	</main>
+	<ChatPanel />
 </Layout>
 
 <style>
@@ -21,5 +23,10 @@ import Experience from '../components/Experience.astro';
 	  max-width: 1200px;
 	  margin: 0 auto;
 	  padding: 0 2rem;
+	  transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	
+	body {
+	  transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
   </style>

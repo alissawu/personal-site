@@ -1,0 +1,5 @@
+[install]
+
+[run]
+# Force Bun runtime for all scripts
+bun = true
