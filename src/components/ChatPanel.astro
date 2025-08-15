@@ -1,8 +1,4 @@
----
-// src/components/ChatPanel.astro
----
-
-<div id="chat-panel" class="chat-panel">
+ <div id="chat-panel" class="chat-panel">
   <div class="resize-handle"></div>
   <div class="chat-header">
     <div class="chat-title">
@@ -47,7 +43,7 @@
   </div>
 </div>
 
-<style>
+<style is:global>
   .chat-panel {
     position: fixed;
     right: 0;
@@ -169,7 +165,7 @@
   }
 
   .message {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     animation: messageSlide 0.3s ease-out;
   }
 
@@ -189,7 +185,7 @@
     color: var(--cyber-green);
     font-family: 'Orbitron', sans-serif;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .message.user .message-prefix {
