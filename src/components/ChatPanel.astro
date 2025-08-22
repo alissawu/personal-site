@@ -325,15 +325,134 @@
   @media (max-width: 768px) {
     .chat-panel {
       width: 100%;
+      border-left: none;
+      border-top: 2px solid var(--cyber-green);
+    }
+
+    .chat-header {
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .chat-title {
+      font-size: 0.875rem;
+    }
+
+    .chat-messages {
+      padding: 1rem;
+      /* Add safe area for iOS devices */
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    }
+
+    .message {
+      margin-bottom: 1.5rem;
+    }
+
+    .message-prefix {
+      font-size: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .message p {
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     .example-prompts {
       flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
     }
 
     .prompt-chip {
       width: 100%;
       text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      min-height: 44px; /* Minimum touch target size */
+      display: flex;
+      align-items: center;
+    }
+
+    .chat-input-container {
+      padding: 1rem;
+      /* Add safe area for iOS devices */
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+      position: sticky;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .input-wrapper {
+      padding: 1rem;
+      min-height: 44px; /* Minimum touch target size */
+    }
+
+    .chat-input {
+      font-size: 1rem; /* Prevent zoom on iOS */
+      line-height: 1.5;
+    }
+
+    .send-btn {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      min-height: 44px; /* Minimum touch target size */
+      min-width: 60px;
+    }
+
+    .minimize-btn,
+    .close-btn {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+    }
+
+    .char-count {
+      font-size: 0.8rem;
+    }
+
+    /* Hide resize handle on mobile */
+    .resize-handle {
+      display: none;
+    }
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 480px) {
+    .chat-header {
+      padding: 0.75rem;
+    }
+
+    .chat-messages {
+      padding: 0.75rem;
+    }
+
+    .chat-input-container {
+      padding: 0.75rem;
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
+
+    .message {
+      margin-bottom: 1.25rem;
+    }
+
+    .input-wrapper {
+      padding: 0.75rem;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+
+    .send-btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .input-prefix {
+      display: none; /* Hide $ prefix on very small screens */
     }
   }
 
